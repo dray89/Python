@@ -6,8 +6,7 @@ for i in range(1, 100):
 
 def combine_word_documents(files):
     merged_document = Document()
-
- # Don't add a page break if you've reached the last file.
+    
     for index, file in enumerate(files):
         sub_doc = Document(file)
         if index < len(files)-1:
