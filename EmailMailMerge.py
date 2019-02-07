@@ -10,7 +10,7 @@ from datetime import date
 template = input("Input Document Name and Extension: " )
 username = input("Input Sender Email: ")
 password = input("input password: ")
-wb = openpyxl.load_workbook(input("Please enter ROC: "))
+wb = openpyxl.load_workbook(input("Please enter file: "))
 sheet = wb.get_sheet_by_name(input("Please enter Sheet Name: ")
 FinalDispositionColumn = sheet.get_highest_column()
 FinalDispositionStatus = sheet.cell(row=1, column=lastCol).value
@@ -31,7 +31,7 @@ for r in range(2, sheet.get_highest_row() + 1):
         else:
             pass
 
-smtpObj = smtplib.SMTP('smtp.hanoverresearch.com', 587)
+smtpObj = smtplib.SMTP('smtp.domain', 587)
 smtpObj.ehlo()
 smtpObj.starttls()
 smtpObj.login(username, sys.argv[1])
@@ -58,7 +58,7 @@ address = []
 address.append()
 
 
-sent_from = "raydebra89@gmail.com"
+sent_from = "email@domain.com"
 to = 
 subject = input("Enter Email Subject:" )
 body = document(mailmerge)
@@ -70,9 +70,9 @@ Subject: %s
 %s
 
 """ %(sent_from, to, subject, body)
-server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+server = smtplib.SMTP_SSL('smtp.domain', 465)
 server.ehlo_or_helo_if_needed()
-server.login(gmail_user, gmail_password)
+server.login(domain_user, domain_password)
 server.sendmail(sent_from, to, email_text)
 server.close()
 
