@@ -1,3 +1,4 @@
+#use googlesearch or similar package but ensure use of request package - not urllib - 
 import csv, bs4
 terms = []
 with open("list.csv", "r") as file: 
@@ -5,7 +6,7 @@ with open("list.csv", "r") as file:
     for row in read:
         terms.append(row)
 output = []
-res = str("gsa.gov")
+res = str("website")
 restrict = [res]
 for each in terms:
     from googlesearch import search
