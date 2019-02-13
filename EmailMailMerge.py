@@ -1,5 +1,3 @@
-import untangle
-obj = untangle.parse('path/to/file.xml')
 #https://docs.python-guide.org/scenarios/xml/
 import smtplib, openpyxl, sys
 from __future__ import print_function
