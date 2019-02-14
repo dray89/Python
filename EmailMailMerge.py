@@ -9,7 +9,7 @@ template = input("Input Document Name and Extension: " )
 username = input("Input Sender Email: ")
 password = input("input password: ")
 wb = openpyxl.load_workbook(input("Please enter file: "))
-sheet = wb.get_sheet_by_name(input("Please enter Sheet Name: ")
+sheet = wb.get_sheet_by_name(input("Please enter Sheet Name: "))
 FinalDispositionColumn = sheet.get_highest_column()
 FinalDispositionStatus = sheet.cell(row=1, column=lastCol).value
 
