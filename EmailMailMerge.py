@@ -11,9 +11,9 @@ excel_doc = input("Input Excel Document: ")
 
 from openpyxl import load_workbook
 workbook = load_workbook(excel_doc)
-worksheet = workbook['Sheet1']
-FinalDispositionColumn = worksheet.get_highest_column()
-FinalDispositionStatus = worksheet.cell(row=1, column=lastCol).value
+sheet = workbook['Sheet1']
+FinalDispositionColumn = sheet.get_highest_column()
+FinalDispositionStatus = sheet.cell(row=1, column=lastCol).value
 
    
 okay = ["Email Sent", "voicemail left"] #All FinalDispositions Okay to Contact
