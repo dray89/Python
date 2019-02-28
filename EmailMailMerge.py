@@ -1,16 +1,19 @@
 #https://docs.python-guide.org/scenarios/xml/
-import smtplib, openpyxl, sys
 from __future__ import print_function
+import smtplib, openpyxl, sys
 from mailmerge import MailMerge
 from datetime import date
 
 template = input("Input Document Name and Extension: " )
 username = input("Input Sender Email: ")
-password = input("input password: ")
-wb = openpyxl.load_workbook(input("Please enter file: "))
-sheet = wb.get_sheet_by_name(input("Please enter Sheet Name: "))
-FinalDispositionColumn = sheet.get_highest_column()
-FinalDispositionStatus = sheet.cell(row=1, column=lastCol).value
+password = input("Input Password: ")
+excel_doc = input("Input Excel Document: ")
+
+from openpyxl import load_workbook
+workbook = load_workbook(excel_doc)
+worksheet = workbook['Sheet1']
+FinalDispositionColumn = worksheet.get_highest_column()
+FinalDispositionStatus = worksheet.cell(row=1, column=lastCol).value
 
    
 okay = ["Email Sent", "voicemail left"] #All FinalDispositions Okay to Contact
