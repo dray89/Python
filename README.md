@@ -1,5 +1,4 @@
 # pythonscripts
-My Commonly Used Scripts
 
 google.py:
   Scrape a google search filtering for site. Useful for administration tasks involving multiple searches on the same website. For example,     separate searches by company names.
