@@ -1,5 +1,8 @@
 # pythonscripts
 
+mystockscraper.py:
+  In progress. Scrape daily stock and options data using TDameritrade APIs.
+
 google.py:
   Scrape a google search filtering for site. Useful for administration tasks involving multiple searches on the same website. For example,     separate searches by company names.
   
