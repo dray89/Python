@@ -8,7 +8,7 @@ import ssl
 import json
 
 with open('config.json') as json_data_file:
-    config = json.load(json_data_file)
+    data = json.load(json_data_file)
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -26,24 +26,18 @@ class Handler(BaseHTTPRequestHandler):
         #Post Access Token Request
         headers = { 'Content-Type': 'application/x-www-form-urlencoded' }
 
-		data = { 'grant_type': 'authorization_code',
-				'access_type': 'offline',
-				'code': code,
-				'client_id': 'OAuth User ID',
-				'redirect_uri': 'Redirect URI'
-		}
-
         authReply = requests.post(
-			'https://api.tdameritrade.com/v1/oauth2/token',
-			headers=headers,
-			data=data
-		)
+            'https://api.tdameritrade.com/v1/oauth2/token',
+			code=code,
+            headers=headers,
+            data=data
+        )
 
         #returned just to test that it's working
         self.wfile.write(authReply.text.encode())
 
 
-httpd = HTTPServer(http://localhost:5000, Handler)
+httpd = HTTPServer(("localhost", 5000), Handler)
 
 
 #SSL cert
