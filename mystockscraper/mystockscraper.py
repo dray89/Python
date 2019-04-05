@@ -1,25 +1,55 @@
-#Note: https://developer.tdameritrade.com/guides; TDAmeritrade API guides assume professional integration with multiple users. This project is designed for personal use.
+# Started with example code from:
+# https://developer.tdameritrade.com/content/web-server-authentication-python-3
 
-#Python guide: https://developer.tdameritrade.com/content/web-server-authentication-python-3
+from http.server import HTTPServer, BaseHTTPRequestHandler
+from urllib.parse import parse_qs
+import requests
+import ssl
+import json
 
-#Getting Started Guide: https://developer.tdameritrade.com/content/getting-started
+with open('config.json') as json_data_file:
+    config = json.load(json_data_file)
 
-#Authorization token request and renewal: https://developer.tdameritrade.com/content/simple-auth-local-apps
 
-#Request authorization from tdameritrade server
-auth_url = "https://api.tdameritrade.com/v1/oauth2/token"
+class Handler(BaseHTTPRequestHandler):
+    def _set_headers(self):
+        self.send_response(200)
+        self.send_header('Content-Type', 'application/json')
+        self.end_headers()
 
-body = {
-	grant_type
-}
+    def do_GET(self):
+        self._set_headers()
+        #Get the Auth Code
+        path, _, query_string = self.path.partition('?')
+        code = parse_qs(query_string)['code'][0]
 
-results = requests.get(auth_url, date=body)
+        #Post Access Token Request
+        headers = { 'Content-Type': 'application/x-www-form-urlencoded' }
 
-#Code is requested and comes out as an output. Redirect_url is a self-created url for the ameritrade server to communicate back results. Essentially, you can choose anything you want. Client_id is a self created alphanumeric string created to identify your application for authorization.
+		data = { 'grant_type': 'authorization_code',
+				'access_type': 'offline',
+				'code': code,
+				'client_id': 'OAuth User ID',
+				'redirect_uri': 'Redirect URI'
+		}
 
-params = {
-  'access_type': 'offline', 
-	'response_type': 'code',
-	'redirect_url': 'https//localhost',
-	'client_id': 'EXAMPLE@AMER.OAUTHAP'
-}
+        authReply = requests.post(
+			'https://api.tdameritrade.com/v1/oauth2/token',
+			headers=headers,
+			data=data
+		)
+
+        #returned just to test that it's working
+        self.wfile.write(authReply.text.encode())
+
+
+httpd = HTTPServer(http://localhost:5000, Handler)
+
+
+#SSL cert
+httpd.socket = ssl.wrap_socket (httpd.socket,
+        keyfile='certs/key.pem',
+        certfile='certs/certificate.pem', server_side=True)
+
+
+httpd.serve_forever()
