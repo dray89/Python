@@ -4,22 +4,14 @@ class insurance_plans:
     def __init__(self, list_price):
         self.list_price = list_price
         list_price = self.list_price
-end
-
-python
 
 class uninsured(insurance_plans):
-	def __init__(self, list_price, uninsured_price = 1, uninsured_quantity = 0):
+	def __init__(self, list_price, uninsured_price = 1):
 		insurance_plans.__init__(self, list_price)
 		self.uninsured_price = uninsured_price
-		self.uninsured_quantity = uninsured_quantity
 
-	def quantity(self, self_pay = 1):
-		self.uninsured_quantity = 100 - uninsured_price*self.list_price
-		uninsured_quantity = self.uninsured_quantity
-end
-
-python
+	def quantity(self):
+		self.uninsured_quantity = 100 - self.uninsured_price*self.list_price
 
 class full(uninsured):
 	def __init__(self, list_price, self_pay = 0):
