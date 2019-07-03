@@ -3,7 +3,7 @@
 Stata_Python.ipynb:
   How to read, edit, and export Stata files using Python scripts.
  
-Insurance_demand.py: 
+insurance_demand.py: 
   Uses object oriented programming to build insurance plans and calculate quantity demanded and social loss. Runs in Stata 16.
   
 mystockscraper.py:
