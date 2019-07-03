@@ -3,9 +3,7 @@ python
 class Insurance_plans: 
     def __init__(self, list_price, intercept = 100):
 		self.list_price = list_price
-		list_price = self.list_price
 		self.intercept = intercept
-		intercept = self.intercept
 end
 
 python
