@@ -21,9 +21,6 @@ pop_prob = [.1,.1,.8]
 joint_prob = []
 marginal = []
 
-probabilities  = {"low risk":[.12,.1], "medium risk": [.3,.1], "high risk": [.6,.8]}
-insurance_table = pd.DataFrame.from_dict(probabilities, orient='index', columns = ['Conditional Probability', 'Population Probability'])
-
 '''
 Calculate Baynesian Probabilities
 '''
@@ -33,11 +30,21 @@ for val in range(len(cond_prob)):
 for index in range(len(cond_prob)):
     marginal.append(cond_prob[index]*sum(joint_prob))
 
-marginal
-joint_prob
+''' 
+Create Dictionary and DataFrame
+'''
+
+probabilities  = {"low risk":[cond_prob[0],pop_prob[0], joint_prob[0], marginal[0]], 
+                  "medium risk": [cond_prob[1],pop_prob[1], joint_prob[1], marginal[1]], 
+                  "high risk": cond_prob[2],pop_prob[2], joint_prob[2], marginal[2]}
+
+insurance_table = pd.DataFrame.from_dict(probabilities, orient='index',
+                                         columns = ['Conditional Probability', 
+                                                    'Population Probability', 
+                                                    'Joint Probability', 
+                                                    'Marginal Probability'])
 '''
 expected income unconditional on risk type = median population income
-
 '''
 expected_income = 10
 expected_loss = marginal*expected_income
