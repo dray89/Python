@@ -35,7 +35,6 @@ class Full(InsurancePlans):
         """
         Calculates the self_pay amount if different than zero.
         """
-        perc_cov = perc_cov
         return (1-perc_cov)*self.list_price
 
     def quantity(self, intercept=100, perc_cov=1):
