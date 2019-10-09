@@ -8,27 +8,12 @@ import requests, pandas, lxml
 from bs4 import BeautifulSoup as soup
 from urllib.request import urlopen
 from lxml import html
-import re
+import re, json
 from finance_python.scrapers import scraper
 
-class dividend_calendar:
+class margin_requirements:
     def __init__(self):
         pass
-
-    def scraper(self):
-        hdrs = {'Accept': 'application/json, text/plain, */*',
-               'DNT': 1,
-               'Origin': 'https://www.nasdaq.com',
-               'Referer': 'https://www.nasdaq.com/market-activity/dividends?date=2019-Oct-09',
-               'Sec-Fetch-Mode': 'cors',
-               'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'}
-        url = "https://api.nasdaq.com/api/calendar/dividends?date=2019-10-07"
-        page = scraper().__general__(url, hdrs)
-        page = page.extract()
-        x = page.p.extract()
-        sp = x.text.split('}')
-        f = list(map(lambda each: re.findall(r'[a-zA-Z]+', each), sp))
-        return f
 
     def all_methods(self):
         url = self.urls()
@@ -39,7 +24,7 @@ class dividend_calendar:
             write = self.write_list(filename, clean)
         return write
 
-    def urls():
+    def urls(self):
         alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
             'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
             "S", 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -52,7 +37,7 @@ class dividend_calendar:
             urls = list(zip(alphabet, urls))
         return urls
     
-    def xpath(number = 27):
+    def xpath(self, number = 27):
         page = range(number)
         xpath_list = []
         for i in page:
@@ -60,21 +45,21 @@ class dividend_calendar:
             xpath_list.append(th)
         return xpath_list
     
-    def readurl(url, html_filename):
+    def readurl(self, url, html_filename):
         response = requests.get(url, html_filename)
         return response
     
-    def content(html_file = "C:\\Users\\rayde\\Downloads\\TDAmeritrade.html"):
+    def content(self, html_file = "C:\\Users\\rayde\\Downloads\\TDAmeritrade.html"):
         html_file = html_file + '.html'
         f = open(html_file, 'r+')
         content = f.read()
         return content
     
-    def clean_html(contents, rex = "[<td>].*[</td>]"):
+    def clean_html(self, contents, rex = "[<td>].*[</td>]"):
         clean_list = re.findall(rex, contents)
         return clean_list
     
-    def write_list(filename, clean_list, letter = '[A-Z]+'):
+    def write_list(self, filename, clean_list, letter = '[A-Z]+'):
         filename = filename + '.txt'
         with open(filename, 'a+') as file:
             for item in clean_list:
@@ -84,3 +69,7 @@ class dividend_calendar:
                     a = " "
                     y = a.join(y)
                     file.writelines(y)
+
+    def string_to_dict(self, string_obj):
+        dictionary = json.loads(string_obj)
+        return dictionary
