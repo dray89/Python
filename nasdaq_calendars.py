@@ -48,6 +48,7 @@ if __name__ == '__main__':
     year = '2019'
     month = '10'
     day = list(range(31))
+    october = dividend_calendar()
     for each in day:
         try:
             dictionary = october.scraper(year, month, str(each))
