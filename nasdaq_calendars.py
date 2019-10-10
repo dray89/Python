@@ -3,7 +3,7 @@
 Created on Tue Oct  8 20:03:46 2019
 @author: rayde
 """
-from finance_python.nasdaq_headers import dividend_calendar
+from finance_python=import dividend_calendar
 import requests, pandas, lxml
 from bs4 import BeautifulSoup as soup
 from urllib.request import urlopen
