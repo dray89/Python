@@ -29,3 +29,4 @@ if __name__ == '__main__':
     for file in os.listdir("C:\\Users\\rayde\\Documents\\merge_files"):
           if file.endswith(".pdf"):
                paths.append("C:\\Users\\rayde\\Documents\\merge_files\\"+ file)
+    merge_pdfs(paths)
