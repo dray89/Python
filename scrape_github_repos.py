@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sun Sep 15 11:15:38 2019
-
 @author: rayde
+
+Get links for github repos
 """
 
 
