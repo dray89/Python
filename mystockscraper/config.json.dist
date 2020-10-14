@@ -1,8 +1,0 @@
-{
-  "data": {
-    "grant_type": "authorization_code",
-    "access_type": "offline",
-    "client_id": " Consumer Key from your TDAmeritrade app ",
-    "redirect_uri": " Callback URL from your TDAmeritrade app "
-  }
-}
