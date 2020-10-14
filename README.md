@@ -2,9 +2,6 @@
 
 Stata_Python.ipynb:
   How to read, edit, and export Stata files using Python scripts.
- 
-insurance_demand.py: 
-  Uses object oriented programming to build insurance plans and calculate quantity demanded and social loss. Runs in Stata 16.
   
 google.py:
   Scrape a google search filtering for site. Useful for administration tasks involving multiple searches on the same website. For example,     separate searches by company names.
