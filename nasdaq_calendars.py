@@ -18,7 +18,8 @@ class dividend_calendar:
         self.attributes = 'scraper(self, year, month, day), calendar(self, dictionary = output from scraper)'
 
     def scraper(self, url, hdrs):
-        page = requests.get(url, params = hdrs)
+	s = requests.Session() 
+        page = s.get(url, params = hdrs)
         page = page.content
         dictionary = json.loads(page)
         return dictionary
@@ -56,5 +57,3 @@ if __name__ == '__main__':
             pass
     october.calendars
     df = pandas.concat(october.calendars)
-    df['Shares'] = 100
-    def['Price']
