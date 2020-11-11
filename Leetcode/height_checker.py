@@ -17,3 +17,7 @@ class Solution(object):
             if a != b:
                 count += 1
         return count
+
+    def heightChecker2(self, heights):
+        return len(set(heights) - set(sorted(heights)))
+
