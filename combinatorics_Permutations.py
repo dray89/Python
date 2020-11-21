@@ -10,7 +10,7 @@ Combinatorics and permutations make me feel... [inadequate. ] like I need to stu
 '''
 Get all the possible permutations for a set of objects.
 '''
-
+import math
 from itertools import product
     
 def perm_possible(items, repeat=5):
@@ -33,6 +33,25 @@ for i in range(n):
 print(count)
  
 #C(n,r)=n!/(n−r)!r!
+def combination_without_repetition(n, k):
+    n_factorial = math.factorial(n)
+    k_factorial = math.factorial(k)
+    n_minus_k_factorial = math.factorial(n-k)
+    denominator = k_factorial*n_minus_k_factorial
+    return n_factorial/denominator
+
+def combination(n, k):
+    numerator = math.factorial(n+k-1)
+    denominator = math.factorial(k)*math.factorial(n-1)
+    return numerator/denominator
+
+def permutation_without_repetition(n, k):
+    numerator = math.factorial(n)
+    denominator = math.factorial(n-k)
+    return numerator/denominator
+
+def permutation(n, k):
+    return n**k
 
 def combinatorics(n, k):
     
@@ -110,7 +129,7 @@ from itertools import combinations_with_replacement
 
 for c in combinations_with_replacement("abc", 2):
     print("".join(c))
-
+'''
 # Fixed Sum of Digits
 import itertools as it
 
@@ -128,3 +147,4 @@ for a in combinations(["A1 ", "A2 ", "A3 ", "A4 ", "A5 ", "A6 ", "A7 ", "A8 "], 
         c = a + b
         output.append(c)
 print(len(output))
+'''
