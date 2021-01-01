@@ -17,7 +17,7 @@ def perm_possible(items, repeat=5):
     perm = product(items, repeat=repeat)
     return [i for i in list(perm)]
 
-perm = perm_possible([0,1])
+perm = perm_possible([0,1,2,3,4,5,6,7,8,9])
 
 
 
@@ -123,13 +123,13 @@ from itertools import combinations
 
 for c in combinations("abcd", 9):
     print("".join(c))
+'''
 
 # Combinations (Unordered with repetitions)
 from itertools import combinations_with_replacement
 
 for c in combinations_with_replacement("abc", 2):
     print("".join(c))
-'''
 # Fixed Sum of Digits
 import itertools as it
 
