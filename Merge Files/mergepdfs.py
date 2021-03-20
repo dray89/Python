@@ -11,7 +11,7 @@ Created on Sun Sep 22 18:08:50 2019
 from PyPDF2 import PdfFileReader, PdfFileWriter
 import os
 
-def merge_pdfs(paths, output = 'Ray_Debra_ResumeCoverLetter_RRD.pdf'):
+def merge_pdfs(paths, output = 'C:\\Users\\rayde\\Documents\\merge_files\\OfferLetter.PDF'):
     pdf_writer = PdfFileWriter()
 
     for path in paths:

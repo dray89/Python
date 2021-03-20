@@ -7,3 +7,5 @@ duration_percfunded.jpg
 *.jpg
 Data Project/ASR Data Analysis Assessment.pdf
 Data Project/.ipynb_checkpoints/OLS_Regression-checkpoint.ipynb
+*.ipynb
+*.PDF
